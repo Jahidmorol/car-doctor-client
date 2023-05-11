@@ -20,7 +20,7 @@ const AboutUs = () => {
         <h2 className="card-title font-bold text-3xl mb-5">We are qualified <br/> & of experience <br/> in this field</h2>
         <p className="mb-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
         <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-        <button className="btn bg-[#FF3811] me-5 mt-5 max-w-[10rem]">Discover More</button>
+        <button className="btn bg-[#FF3811] me-5 mt-5 max-w-[10rem]">Get More Info</button>
       </div>
     </div>
   );

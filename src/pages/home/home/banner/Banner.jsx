@@ -8,11 +8,11 @@ import img6 from "../../../../assets/images/banner/6.jpg";
 
 const Banner = () => {
   return (
-    <div className="carousel w-full my-10">
+    <div className="carousel h-[500px] md:h-full w-full my-10">
       <div id="slide1" className="carousel-item w-full relative">
-        <img src={img1} className="w-full h-[600px] rounded-lg" />
-        <div className="absolute h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
-          <div className=" space-y-5 absolute top-1/3 left-20">
+        <img src={img1} className="w-full h-[500px] md:h-[600px] rounded-lg" />
+        <div className="absolute h-[500px] md:h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
+          <div className=" space-y-5 absolute top-1/4 md:top-1/3 left-2 md:left-20">
             <h2 className="text-5xl font-bold text-white">
               Affordable <br /> Price For Car <br /> Servicing
             </h2>
@@ -26,7 +26,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute flex justify-between md:justify-end transform right-10 md:bottom-10 gap-5">
+        <div className="absolute flex justify-between md:justify-end transform right-10 bottom-2 md:bottom-10 gap-5">
           <a href="#slide6" className="btn btn-circle">
             ❮
           </a>
@@ -38,11 +38,11 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      {/* ----------------------- */}
+      {/* -------------------------------- */}
       <div id="slide2" className="carousel-item w-full relative">
-        <img src={img2} className="w-full h-[600px] rounded-lg" />
-        <div className="absolute h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
-          <div className=" space-y-5 absolute top-1/3 left-20">
+        <img src={img2} className="w-full h-[500px] md:h-[600px] rounded-lg" />
+        <div className="absolute h-[500px] md:h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
+          <div className=" space-y-5 absolute top-1/4 md:top-1/3 left-2 md:left-20">
             <h2 className="text-5xl font-bold text-white">
               Affordable <br /> Price For Car <br /> Servicing
             </h2>
@@ -56,7 +56,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute flex justify-between md:justify-end transform right-10 md:bottom-10 gap-5">
+        <div className="absolute flex justify-between md:justify-end transform right-10 bottom-2 md:bottom-10 gap-5">
           <a href="#slide1" className="btn btn-circle">
             ❮
           </a>
@@ -68,11 +68,11 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      {/* ----------------------- */}
+      {/* -------------------------------- */}
       <div id="slide3" className="carousel-item w-full relative">
-        <img src={img3} className="w-full h-[600px] rounded-lg" />
-        <div className="absolute h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
-          <div className=" space-y-5 absolute top-1/3 left-20">
+        <img src={img3} className="w-full h-[500px] md:h-[600px] rounded-lg" />
+        <div className="absolute h-[500px] md:h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
+          <div className=" space-y-5 absolute top-1/4 md:top-1/3 left-2 md:left-20">
             <h2 className="text-5xl font-bold text-white">
               Affordable <br /> Price For Car <br /> Servicing
             </h2>
@@ -86,7 +86,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute flex justify-between md:justify-end transform right-10 md:bottom-10 gap-5">
+        <div className="absolute flex justify-between md:justify-end transform right-10 bottom-2 md:bottom-10 gap-5">
           <a href="#slide2" className="btn btn-circle">
             ❮
           </a>
@@ -98,11 +98,11 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      {/* ----------------------- */}
+      {/* -------------------------------- */}
       <div id="slide4" className="carousel-item w-full relative">
-        <img src={img4} className="w-full h-[600px] rounded-lg" />
-        <div className="absolute h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
-          <div className=" space-y-5 absolute top-1/3 left-20">
+        <img src={img4} className="w-full h-[500px] md:h-[600px] rounded-lg" />
+        <div className="absolute h-[500px] md:h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
+          <div className=" space-y-5 absolute top-1/4 md:top-1/3 left-2 md:left-20">
             <h2 className="text-5xl font-bold text-white">
               Affordable <br /> Price For Car <br /> Servicing
             </h2>
@@ -116,7 +116,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute flex justify-between md:justify-end transform right-10 md:bottom-10 gap-5">
+        <div className="absolute flex justify-between md:justify-end transform right-10 bottom-2 md:bottom-10 gap-5">
           <a href="#slide3" className="btn btn-circle">
             ❮
           </a>
@@ -128,11 +128,11 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      {/* ----------------------- */}
+      {/* -------------------------------- */}
       <div id="slide5" className="carousel-item w-full relative">
-        <img src={img5} className="w-full h-[600px] rounded-lg" />
-        <div className="absolute h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
-          <div className=" space-y-5 absolute top-1/3 left-20">
+        <img src={img5} className="w-full h-[500px] md:h-[600px] rounded-lg" />
+        <div className="absolute h-[500px] md:h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
+          <div className=" space-y-5 absolute top-1/4 md:top-1/3 left-2 md:left-20">
             <h2 className="text-5xl font-bold text-white">
               Affordable <br /> Price For Car <br /> Servicing
             </h2>
@@ -146,7 +146,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute flex justify-between md:justify-end transform right-10 md:bottom-10 gap-5">
+        <div className="absolute flex justify-between md:justify-end transform right-10 bottom-2 md:bottom-10 gap-5">
           <a href="#slide4" className="btn btn-circle">
             ❮
           </a>
@@ -158,11 +158,11 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      {/* ----------------------- */}
+      {/* -------------------------------- */}
       <div id="slide6" className="carousel-item w-full relative">
-        <img src={img6} className="w-full h-[600px] rounded-lg" />
-        <div className="absolute h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
-          <div className=" space-y-5 absolute top-1/3 left-20">
+        <img src={img6} className="w-full h-[500px] md:h-[600px] rounded-lg" />
+        <div className="absolute h-[500px] md:h-full w-full flex-col rounded-lg bg-gradient-to-r from-[#151515] to-[21, 21, 21, 0]">
+          <div className=" space-y-5 absolute top-1/4 md:top-1/3 left-2 md:left-20">
             <h2 className="text-5xl font-bold text-white">
               Affordable <br /> Price For Car <br /> Servicing
             </h2>
@@ -176,7 +176,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="absolute flex justify-between md:justify-end transform right-10 md:bottom-10 gap-5">
+        <div className="absolute flex justify-between md:justify-end transform right-10 bottom-2 md:bottom-10 gap-5">
           <a href="#slide5" className="btn btn-circle">
             ❮
           </a>
@@ -188,7 +188,7 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      {/* ----------------------- */}
+      {/* -------------------------------- */}
     </div>
   );
 };
