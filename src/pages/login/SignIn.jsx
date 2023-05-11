@@ -1,17 +1,30 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import signin from "../../assets/images/login/login.svg";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignIn = () => {
     
+    const {logIn} = useContext(AuthContext);
+
     const handleSubmit = event => {
         event.preventDefault()
 
         const form = event.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        console.log(email, password);
+
+        logIn(email, password)
+        .then((result) => {
+            const logedUser = result.user;
+            console.log(logedUser);
+        })
+        .catch((error) => {
+            const errorMessage = error.message 
+            console.error(errorMessage);
+        })
 
     }
 
@@ -26,17 +39,6 @@ const SignIn = () => {
           <div className="card-body">
             <h1 className="text-3xl font-bold text-center">Login now!</h1>
             <form onSubmit={handleSubmit}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="name"
-                  className="input input-bordered"
-                />
-              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

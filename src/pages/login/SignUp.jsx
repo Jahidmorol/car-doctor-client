@@ -1,19 +1,29 @@
 import React from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import login from '../../assets/images/login/login.svg'
+import login from "../../assets/images/login/login.svg";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
+  const [user, setUser] = useState(null)
 
-    const handleSubmit = event => {
-        event.preventDefault()
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
 
-    }
-
+    createUser(email,password)
+    .then((result) => {
+        console.log(result.user);
+    })
+    .catch((error) => console.error(error))
+  };
 
   return (
     <div className="hero min-h-[32rem] rounded mt-10 bg-base-200">
@@ -25,6 +35,17 @@ const SignUp = () => {
           <div className="card-body">
             <h1 className="text-3xl font-bold text-center">Sign Up!</h1>
             <form onSubmit={handleSubmit}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="name"
+                  className="input input-bordered"
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
