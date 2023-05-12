@@ -1,16 +1,19 @@
 import React from "react";
-import img from "../../assets/images/banner/3.jpg";
+import { useLoaderData } from "react-router-dom";
 
 const CheckOut = () => {
+  const services = useLoaderData();
+  // console.log(services);
+  const {title, img, price} = services
   return (
     <div>
       <div className="relative h-[300px] rounded-md my-10">
         <img src={img} alt="photo" className="h-[300px] w-full rounded-md" />
         <div className="absolute top-0 w-full bg-gradient-to-r rounded-md from-[#151515] to-[21, 21, 21, 0] h-full">
           <h2 className="absolute top-1/2 left-10 text-3xl text-white">
-            Check Out
+            {title}
           </h2>
-          <button className="absolute bottom-0 rounded-b-none rounded-t-full inset-x-[30rem]  btn text-white bg-[#FF3811]">
+          <button className="absolute bottom-0 rounded-b-none rounded-t-full left-1/4 right-1/4 md:inset-x-[30rem]  btn text-white bg-[#FF3811]">
             Home/Checkout
           </button>
         </div>
