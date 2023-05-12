@@ -22,6 +22,7 @@ const OrderRevews = () => {
       });
   }, [url]);
 
+  // ---------------------------------------------
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -40,11 +41,48 @@ const OrderRevews = () => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your Order has been deleted.", "success");
               const remaing = orderReviews.filter(
                 (orderR) => orderR._id !== _id
               );
               setOrderReviews(remaing);
+            }
+          });
+      }
+    });
+  };
+
+  // -------------------------------------------------------
+  const handlePending = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You would be Approved this!",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#29B170",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Approved it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/orderreviews/${_id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: "Approved" }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+              Swal.fire(
+                "Approved!",
+                "Your Order has been Approved.",
+                "success"
+              );
+              const remaing = orderReviews.filter((order) => order._id !== _id);
+              const approved = orderReviews.find((order) => order._id === _id);
+              approved.status = 'Approved'
+              const newOrderReviews = [approved, ...remaing];
+              setOrderReviews(newOrderReviews);
             }
           });
       }
@@ -70,6 +108,7 @@ const OrderRevews = () => {
               key={orderReview._id}
               orderReview={orderReview}
               handleDelete={handleDelete}
+              handlePending={handlePending}
             ></OrderReview>
           ))}
         </table>

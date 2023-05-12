@@ -1,14 +1,13 @@
 import React from "react";
 
-const OrderReview = ({ orderReview, handleDelete }) => {
-  const { img, service, price, date, _id} = orderReview;
-
-
+const OrderReview = ({ orderReview, handleDelete, handlePending }) => {
+  const { img, service, price, date, _id, status } = orderReview;
+  console.log(status);
   return (
     <tbody>
       <tr>
         <th>
-          <button onClick={()=> handleDelete(_id)} className="btn btn-circle">
+          <button onClick={() => handleDelete(_id)} className="btn btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -41,7 +40,16 @@ const OrderReview = ({ orderReview, handleDelete }) => {
         <td>$ {price}</td>
         <td>{date}</td>
         <th>
-          <button className="btn btn-xs bg-[#FF3811]">Pending</button>
+          {status === "Approved" ? (
+            <span className="btn btn-xs bg-[#29B170]">Approved</span>
+          ) : (
+            <button
+              onClick={() => handlePending(_id)}
+              className="btn btn-xs bg-[#FF3811]"
+            >
+              Pending
+            </button>
+          )}
         </th>
       </tr>
     </tbody>
