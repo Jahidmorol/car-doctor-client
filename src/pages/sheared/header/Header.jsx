@@ -1,25 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import logo from '../../../assets/logo.svg'
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../../assets/logo.svg";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   const navItems = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
         <a>About</a>
       </li>
-      <li>
-        <a>Services</a>
-      </li>
-      <li>
-        <a>Blog</a>
-      </li>
-      <li>
-        <a>Content</a>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <button onClick={handleLogOut}>LogOut</button>
+          </li>
+          <li>
+            <NavLink to="/orderreviews">Order Review</NavLink>
+          </li>
+        </>
+      ) : (
+        <li>
+          <NavLink to="/login">
+            <button>Login</button>
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -47,13 +64,13 @@ const Header = () => {
           </ul>
         </div>
         {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-        <Link to='/'>
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-            {navItems}
+          {navItems}
           {/* ----------------------------------------------------- */}
         </ul>
       </div>
