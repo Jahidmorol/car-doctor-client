@@ -14,7 +14,12 @@ const OrderRevews = () => {
 
   const url = `http://localhost:5000/orderreviews?email=${user.email}`;
   useEffect(() => {
-    fetch(url)
+    fetch(url,{
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('service-access-token')}` 
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -38,7 +43,7 @@ const OrderRevews = () => {
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then((data) => {
+          .then((data) => { 
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Order has been deleted.", "success");

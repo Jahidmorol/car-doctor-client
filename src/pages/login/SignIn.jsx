@@ -1,33 +1,45 @@
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import signin from "../../assets/images/login/login.svg";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const SignIn = () => {
-    
-    const {logIn} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
-    const handleSubmit = event => {
-        event.preventDefault()
+  const { logIn } = useContext(AuthContext);
 
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email, password);
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-        logIn(email, password)
-        .then((result) => {
-            const logedUser = result.user;
-            console.log(logedUser);
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    logIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        const loggedUser = { email: user.email };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(loggedUser),
         })
-        .catch((error) => {
-            const errorMessage = error.message 
-            console.error(errorMessage);
-        })
-
-    }
-
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("service-access-token", data.token);
+            navigate(from, { replace: true });
+          });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      });
+  };
 
   return (
     <div className="hero min-h-[32rem] rounded mt-10 bg-base-200">
@@ -75,7 +87,10 @@ const SignIn = () => {
               </div>
             </form>
             <p className="text-center my-3">
-              New in CarDoctor? <Link to='/login/signup' className="text-[#FF3811]">Sign Up</Link>
+              New in CarDoctor?{" "}
+              <Link to="/login/signup" className="text-[#FF3811]">
+                Sign Up
+              </Link>
             </p>
           </div>
         </div>
